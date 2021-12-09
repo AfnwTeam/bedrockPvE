@@ -1,0 +1,10 @@
+name: BedrockPvE
+version: '${project.version}'
+main: com.github.afnw.bedrockPvE.BedrockPvE
+api-version: 1.17
+authors: [ 5hak3 ]
+description: Bedrock PvE in AFNW!
+
+commands:
+  bpespawn:
+    description: Bedrock PvEにMOBを沸かせる
