@@ -14,3 +14,9 @@ commands:
     description: Spawn MOBs in Bedrock PvE World.
     permission: bpe.op
     permission-message: "This command is ONLY available to operators."
+  bpereload:
+    description: Reload config.yml.
+    permission: bpe.op
+    permission-message: "This command is ONLY available to operators."
+  bpe:
+    description: Bedrock PvE Worldへ移動！
