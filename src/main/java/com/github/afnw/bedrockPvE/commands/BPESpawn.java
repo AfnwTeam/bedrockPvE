@@ -81,6 +81,7 @@ public class BPESpawn implements CommandExecutor {
                             while((!(loc.getBlock().isEmpty()))||(!(loc.add(0,1,0).getBlock().isEmpty()))) loc.setY(loc.getY()+1);
                             assert bpeworld != null;
                             bpeworld.spawnEntity(loc,type);
+                            sender.sendMessage(ChatColor.YELLOW + prefix + "モンスターをSpawnさせました。");
                         }
                     }
                 }
