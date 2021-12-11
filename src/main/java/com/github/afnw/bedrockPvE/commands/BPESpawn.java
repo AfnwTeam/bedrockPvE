@@ -27,6 +27,7 @@ public class BPESpawn implements CommandExecutor {
         if(command.getName().equalsIgnoreCase("bpespawn")){
             String mode;
             String prefix = "[BedrockPvE] ";
+            Random rnd = new Random();
             FileConfiguration config = plugin.getConfig();
             // エラー処理: argsがnull
             if(args.length == 0){
@@ -71,6 +72,11 @@ public class BPESpawn implements CommandExecutor {
                     if(!Objects.isNull(type)){
                         Location loc = new Location(bpeworld,Double.valueOf(locarr.get(0)),Double.valueOf(locarr.get(1)),Double.valueOf(locarr.get(2)));
                         for (int i=0;i<conf.get(key).get(key2);i++) {
+                            // 湧く場所を乱数で揺らす
+                            double rvalue = rnd.nextDouble() - rnd.nextDouble();
+                            loc.setX(loc.getX()+3*rvalue);
+                            rvalue = rnd.nextDouble() - rnd.nextDouble();
+                            loc.setZ(loc.getZ()+3*rvalue);
                             assert bpeworld != null;
                             bpeworld.spawnEntity(loc,type);
                         }

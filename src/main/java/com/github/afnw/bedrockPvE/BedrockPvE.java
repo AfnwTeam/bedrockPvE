@@ -10,6 +10,7 @@ public class BedrockPvE extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        getLogger().info("Default Keys: "+ Objects.requireNonNull(getConfig().getConfigurationSection("Default")).getKeys(false));
 
         Objects.requireNonNull(getCommand("bpereload")).setExecutor(new Reload(this));
         Objects.requireNonNull(getCommand("bpespawn")).setExecutor(new BPESpawn(this));
