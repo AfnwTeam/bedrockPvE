@@ -28,11 +28,16 @@ public class BPE implements CommandExecutor {
                 return true;
             }
             if(player.getWorld() != Bukkit.getServer().getWorld("world")){
+                if(player.hasPermission("afnw.op.commands")) {
+                    player.sendTitle(ChatColor.YELLOW + "オペレーターテレポート", "制限を回避してBedrock PvEに移動しました。", 3, 60, 1);
+                    player.teleport(point);
+                    return true;
+                }
                 player.sendMessage(ChatColor.RED + prefix + "AFNW通常ワールドからのみBedrockPvEに接続できます。");
                 return true;
             }
             if (player.hasPermission("bpe.op")) {
-                player.sendTitle(ChatColor.YELLOW + "オペレーターテレポート", "制限を回避してロビーに移動しました。", 3, 60, 1);
+                player.sendTitle(ChatColor.YELLOW + "オペレーターテレポート", "制限を回避してBedrock PvEに移動しました。", 3, 60, 1);
                 player.teleport(point);
                 return true;
             }
