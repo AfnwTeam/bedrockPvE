@@ -5,6 +5,12 @@ api-version: 1.17
 authors: [ 5hak3 ]
 description: Bedrock PvE in AFNW!
 
+permissions:
+  bpe.op:
+    default: op
+
 commands:
   bpespawn:
-    description: Bedrock PvEにMOBを沸かせる
+    description: Spawn MOBs in Bedrock PvE World.
+    permission: bpe.op
+    permission-message: "This command is ONLY available to operators."
