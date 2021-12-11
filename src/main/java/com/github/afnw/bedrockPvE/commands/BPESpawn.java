@@ -78,7 +78,7 @@ public class BPESpawn implements CommandExecutor {
                             rvalue = rnd.nextDouble() - rnd.nextDouble();
                             loc.setZ(loc.getZ()+3*rvalue);
                             // locの位置にブロックがあるとき，Yを1追加し続ける
-                            while(!(loc.getBlock().isEmpty())) loc.setY(loc.getY()+1);
+                            while((!(loc.getBlock().isEmpty()))||(!(loc.add(0,1,0).getBlock().isEmpty()))) loc.setY(loc.getY()+1);
                             assert bpeworld != null;
                             bpeworld.spawnEntity(loc,type);
                         }
