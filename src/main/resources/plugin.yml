@@ -10,6 +10,10 @@ permissions:
     default: op
 
 commands:
+  bpetestspawn:
+    description: Spawn MOB Test.
+    permission: bpe.op
+    permission-message: "This command is ONLY available to operators."
   bpespawn:
     description: Spawn MOBs in Bedrock PvE World.
     permission: bpe.op

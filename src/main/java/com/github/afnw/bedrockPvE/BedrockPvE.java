@@ -14,6 +14,7 @@ public class BedrockPvE extends JavaPlugin {
 
         Objects.requireNonNull(getCommand("bpereload")).setExecutor(new Reload(this));
         Objects.requireNonNull(getCommand("bpespawn")).setExecutor(new BPESpawn(this));
+        Objects.requireNonNull(getCommand("bpetestspawn")).setExecutor(new TestSpawn());
         Objects.requireNonNull(getCommand("bpe")).setExecutor(new BPE());
     }
 }

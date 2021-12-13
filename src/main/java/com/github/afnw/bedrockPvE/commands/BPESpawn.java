@@ -1,5 +1,7 @@
 package com.github.afnw.bedrockPvE.commands;
 
+//import io.lumine.xikage.mythicmobs.MythicMobs;
+//import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -17,9 +19,22 @@ import java.util.stream.Collectors;
 
 public class BPESpawn implements CommandExecutor {
     private final JavaPlugin plugin;
+    private Random rnd = new Random();
 
     public BPESpawn(JavaPlugin plugin){
         this.plugin = plugin;
+    }
+
+    private Location locRandomizor(Location locorg) {
+        Location loc = locorg.clone();
+        // 湧く場所を乱数で揺らす
+        double rvalue = rnd.nextDouble() - rnd.nextDouble();
+        loc.setX(loc.getX()+3*rvalue);
+        rvalue = rnd.nextDouble() - rnd.nextDouble();
+        loc.setZ(loc.getZ()+3*rvalue);
+        // locの位置にブロックがあるとき，Yを1追加し続ける
+        while((!(loc.getBlock().isEmpty()))||(!(loc.add(0,1,0).getBlock().isEmpty()))) loc.setY(loc.getY()+1);
+        return loc;
     }
 
     @Override
@@ -27,7 +42,6 @@ public class BPESpawn implements CommandExecutor {
         if(command.getName().equalsIgnoreCase("bpespawn")){
             String mode;
             String prefix = "[BedrockPvE] ";
-            Random rnd = new Random();
             FileConfiguration config = plugin.getConfig();
             // エラー処理: argsがnull
             if(args.length == 0){
@@ -67,26 +81,40 @@ public class BPESpawn implements CommandExecutor {
             for (String key: conf.keySet()){
                 // いい感じに座標を3つにわけつつIntegerにする
                 List<Integer> locarr = Arrays.stream(key.split(",",3)).map(Integer::parseInt).collect(Collectors.toList());
-                for (String key2: conf.get(key).keySet()){
-                    EntityType type = EntityType.fromName(key2);
-                    if(!Objects.isNull(type)){
-                        Location loc = new Location(bpeworld,Double.valueOf(locarr.get(0)),Double.valueOf(locarr.get(1)),Double.valueOf(locarr.get(2)));
-                        for (int i=0;i<conf.get(key).get(key2);i++) {
-                            // 湧く場所を乱数で揺らす
-                            double rvalue = rnd.nextDouble() - rnd.nextDouble();
-                            loc.setX(loc.getX()+3*rvalue);
-                            rvalue = rnd.nextDouble() - rnd.nextDouble();
-                            loc.setZ(loc.getZ()+3*rvalue);
-                            // locの位置にブロックがあるとき，Yを1追加し続ける
-                            while((!(loc.getBlock().isEmpty()))||(!(loc.add(0,1,0).getBlock().isEmpty()))) loc.setY(loc.getY()+1);
-                            assert bpeworld != null;
-                            bpeworld.spawnEntity(loc,type);
-                            sender.sendMessage(ChatColor.YELLOW + prefix + "モンスターをSpawnさせました。");
+                for (String name: conf.get(key).keySet()){
+                    Location locorg = new Location(bpeworld,Double.valueOf(locarr.get(0)),Double.valueOf(locarr.get(1)),Double.valueOf(locarr.get(2)));
+                    if (name.startsWith("MM.")) {
+                        // MMのMOBの場合
+//                        for (int i=0;i<conf.get(key).get(name);i++) {
+//                            Location loc = locRandomizor(locorg);
+//                            // getMythicMob(String s)は見つからなければnullを返す
+//                            // と思ったけど，先に存在チェックをしてMythicMobインスタンスを渡してもtry-catchしないと怒られるので
+//                            // 存在チェックをせずにtry-catchする
+//                            try {
+//                                MythicMobs.inst().getAPIHelper().spawnMythicMob(name.substring(3),loc);
+//                            } catch (InvalidMobTypeException e) {
+//                                sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
+//                                break;
+//                            }
+//                        }
+                    } else {
+                        // バニラのMOBの場合
+                        EntityType type = EntityType.fromName(name);
+                        if(!Objects.isNull(type)){
+                            for (int i=0;i<conf.get(key).get(name);i++) {
+                                Location loc = locRandomizor(locorg);
+                                assert bpeworld != null;
+                                bpeworld.spawnEntity(loc,type);
+                            }
+                        } else{
+                            sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
                         }
                     }
                 }
             }
+            sender.sendMessage(ChatColor.YELLOW + prefix + "モンスターをSpawnさせました．");
+            return true;
         }
-        return true;
+        return false;
     }
 }
