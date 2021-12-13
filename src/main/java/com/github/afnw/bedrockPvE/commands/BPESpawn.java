@@ -1,7 +1,7 @@
 package com.github.afnw.bedrockPvE.commands;
 
-//import io.lumine.xikage.mythicmobs.MythicMobs;
-//import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException;
+import io.lumine.xikage.mythicmobs.MythicMobs;
+import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -85,18 +85,18 @@ public class BPESpawn implements CommandExecutor {
                     Location locorg = new Location(bpeworld,Double.valueOf(locarr.get(0)),Double.valueOf(locarr.get(1)),Double.valueOf(locarr.get(2)));
                     if (name.startsWith("MM.")) {
                         // MMのMOBの場合
-//                        for (int i=0;i<conf.get(key).get(name);i++) {
-//                            Location loc = locRandomizor(locorg);
-//                            // getMythicMob(String s)は見つからなければnullを返す
-//                            // と思ったけど，先に存在チェックをしてMythicMobインスタンスを渡してもtry-catchしないと怒られるので
-//                            // 存在チェックをせずにtry-catchする
-//                            try {
-//                                MythicMobs.inst().getAPIHelper().spawnMythicMob(name.substring(3),loc);
-//                            } catch (InvalidMobTypeException e) {
-//                                sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
-//                                break;
-//                            }
-//                        }
+                        for (int i=0;i<conf.get(key).get(name);i++) {
+                            Location loc = locRandomizor(locorg);
+                            // getMythicMob(String s)は見つからなければnullを返す
+                            // と思ったけど，先に存在チェックをしてMythicMobインスタンスを渡してもtry-catchしないと怒られるので
+                            // 存在チェックをせずにtry-catchする
+                            try {
+                                MythicMobs.inst().getAPIHelper().spawnMythicMob(name.substring(3),loc);
+                            } catch (InvalidMobTypeException e) {
+                                sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
+                                break;
+                            }
+                        }
                     } else {
                         // バニラのMOBの場合
                         EntityType type = EntityType.fromName(name);

@@ -1,7 +1,7 @@
 package com.github.afnw.bedrockPvE.commands;
 
-//import io.lumine.xikage.mythicmobs.MythicMobs;
-//import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException;
+import io.lumine.xikage.mythicmobs.MythicMobs;
+import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -33,15 +33,15 @@ public class TestSpawn implements CommandExecutor {
             // 指定されたMOBをSenderの地点に召喚する
             if (name.startsWith("MM.")) {
                 // MMのMOBの場合
-//                name = name.substring(3);
-//                // getMythicMob(String s)は見つからなければnullを返す
-//                // と思ったけど，先に存在チェックをしてMythicMobインスタンスを渡してもtry-catchしないと怒られるので
-//                // 存在チェックをせずにtry-catchする
-//                try {
-//                    MythicMobs.inst().getAPIHelper().spawnMythicMob(name,loc);
-//                } catch (InvalidMobTypeException e) {
-//                    sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
-//                }
+                name = name.substring(3);
+                // getMythicMob(String s)は見つからなければnullを返す
+                // と思ったけど，先に存在チェックをしてMythicMobインスタンスを渡してもtry-catchしないと怒られるので
+                // 存在チェックをせずにtry-catchする
+                try {
+                    MythicMobs.inst().getAPIHelper().spawnMythicMob(name,loc);
+                } catch (InvalidMobTypeException e) {
+                    sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
+                }
             } else {
                 // バニラのMOBの場合
                 EntityType type = EntityType.fromName(name);
