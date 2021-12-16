@@ -1,6 +1,7 @@
-package com.github.afnw.bedrockPvE;
+package net.azisaba.afnw.bedrockPvE;
 
-import com.github.afnw.bedrockPvE.commands.*;
+import net.azisaba.afnw.bedrockPvE.commands.*;
+import net.azisaba.afnw.bedrockPvE.listener.*;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,5 +17,8 @@ public class BedrockPvE extends JavaPlugin {
         Objects.requireNonNull(getCommand("bpespawn")).setExecutor(new BPESpawn(this));
         Objects.requireNonNull(getCommand("bpetestspawn")).setExecutor(new TestSpawn());
         Objects.requireNonNull(getCommand("bpe")).setExecutor(new BPE());
+
+        getServer().getPluginManager().registerEvents(new LavaFlowCanceller(), this);
+        getServer().getPluginManager().registerEvents(new IronGolemSpawnCanceller(), this);
     }
 }

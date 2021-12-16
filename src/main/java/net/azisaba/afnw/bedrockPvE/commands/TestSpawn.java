@@ -1,4 +1,4 @@
-package com.github.afnw.bedrockPvE.commands;
+package net.azisaba.afnw.bedrockPvE.commands;
 
 //import io.lumine.xikage.mythicmobs.MythicMobs;
 //import io.lumine.xikage.mythicmobs.api.exceptions.InvalidMobTypeException;

@@ -1,4 +1,4 @@
-package com.github.afnw.bedrockPvE.commands;
+package net.azisaba.afnw.bedrockPvE.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

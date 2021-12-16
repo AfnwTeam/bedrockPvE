@@ -1,6 +1,6 @@
-package com.github.afnw.bedrockPvE.commands;
+package net.azisaba.afnw.bedrockPvE.commands;
 
-import com.github.afnw.bedrockPvE.BedrockPvE;
+import net.azisaba.afnw.bedrockPvE.BedrockPvE;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
