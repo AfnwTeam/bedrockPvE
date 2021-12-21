@@ -11,8 +11,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -104,7 +108,23 @@ public class BPESpawn implements CommandExecutor {
                             for (int i=0;i<conf.get(key).get(name);i++) {
                                 Location loc = locRandomizor(locorg);
                                 assert bpeworld != null;
-                                bpeworld.spawnEntity(loc,type);
+                                Entity ent = bpeworld.spawnEntity(loc,type);
+                                PotionEffect pe;
+                                // 体力20UP
+                                pe = new PotionEffect(PotionEffectType.HEALTH_BOOST, 3600, 19);
+                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
+                                // ダメージ上昇3
+                                pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 3600, 2);
+                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
+                                // ダメージ耐性2
+                                pe = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 3600, 1);
+                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
+                                // 火炎耐性
+                                pe = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 3600, 0);
+                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
+                                // 発光（テスト用）
+//                                pe = new PotionEffect(PotionEffectType.GLOWING, 3600, 0);
+//                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
                             }
                         } else{
                             sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
