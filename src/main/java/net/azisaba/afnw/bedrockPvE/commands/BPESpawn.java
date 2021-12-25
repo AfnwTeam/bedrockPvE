@@ -15,6 +15,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -60,34 +61,34 @@ public class BPESpawn implements CommandExecutor {
                 return true;
             }
 
-            HashMap<String, HashMap<String, Integer>> conf = new HashMap<>();
-            ConfigurationSection cfgsec = config.getConfigurationSection(mode);
-
-            /*
-              plugin.conf から順番に読み出して this.conf に詰めておく
-              {"100,1,100":[{"type":ZOMBIE,"count":10},{"type":SKELETON,"count":10}]}
-              to
-              {"100,1,100":{"ZOMBIE":10,"SKELTON":10}}
-             */
-            assert cfgsec != null;
-            for (String key: cfgsec.getKeys(false)){
-                conf.put(key, new HashMap<>());
-                for (Map<?,?> tuples: cfgsec.getMapList(key)){
-                    conf.get(key).put(String.valueOf(tuples.get("type")),
-                            Integer.parseInt(String.valueOf(tuples.get("count"))));
+            // エフェクト指定があるかを判断
+            double effectRate = 1.0;
+            if(args.length < 2) {
+                sender.sendMessage(ChatColor.YELLOW + prefix + "Effect Rate指定がないため 1.0 とします");
+            }
+            else {
+                try {
+                    effectRate = Double.parseDouble(args[1]);
+                } catch (NumberFormatException e) {
+                    sender.sendMessage(ChatColor.RED + prefix + "Effect Rateは実数で指定してください");
+                }
+                if (effectRate > 0)
+                    sender.sendMessage(ChatColor.YELLOW + prefix + "Effect Rateを" + effectRate + "とします");
+                else {
+                    sender.sendMessage(ChatColor.RED + prefix + "Effect Rateに負数が指定されたため 0.0 に設定します");
+                    effectRate = 0.0;
                 }
             }
-            sender.sendMessage(ChatColor.YELLOW + prefix + "設定を読み込みました．");
-            sender.sendMessage(prefix + "Keys: "+ cfgsec.getKeys(false));
-            // sender.sendMessage(conf.toString());
+
+            ConfigurationSection cfgsec = config.getConfigurationSection(mode);
 
             World bpeworld = Bukkit.getServer().getWorld("bedrockpve");
-            for (String key: conf.keySet()){
+            for (String key: cfgsec.getKeys(false)){
                 // いい感じに座標を3つにわけつつIntegerにする
                 List<Integer> locarr = Arrays.stream(key.split(",",3)).map(Integer::parseInt).collect(Collectors.toList());
-                for (String name: conf.get(key).keySet()){
+                for (Map<?,?> list: cfgsec.getMapList(key)){
                     Location locorg = new Location(bpeworld,Double.valueOf(locarr.get(0)),Double.valueOf(locarr.get(1)),Double.valueOf(locarr.get(2)));
-                    if (name.startsWith("MM.")) {
+                    if (((String)(list.get("type"))).startsWith("MM.")) {
                         // MMのMOBの場合
 //                        for (int i=0;i<conf.get(key).get(name);i++) {
 //                            Location loc = locRandomizor(locorg);
@@ -103,31 +104,20 @@ public class BPESpawn implements CommandExecutor {
 //                        }
                     } else {
                         // バニラのMOBの場合
-                        EntityType type = EntityType.fromName(name);
+                        EntityType type = EntityType.fromName((String)(list.get("type")));
                         if(!Objects.isNull(type)){
-                            for (int i=0;i<conf.get(key).get(name);i++) {
+                            for (int i=0;i<((int)(list.get("count")));i++) {
                                 Location loc = locRandomizor(locorg);
                                 assert bpeworld != null;
                                 Entity ent = bpeworld.spawnEntity(loc,type);
                                 PotionEffect pe;
-                                // 体力20UP
-                                pe = new PotionEffect(PotionEffectType.HEALTH_BOOST, 3600, 19);
-                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
-                                // ダメージ上昇3
-                                pe = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 3600, 2);
-                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
-                                // ダメージ耐性2
-                                pe = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 3600, 1);
-                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
-                                // 火炎耐性
-                                pe = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 3600, 0);
-                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
-                                // 発光（テスト用）
-//                                pe = new PotionEffect(PotionEffectType.GLOWING, 3600, 0);
-//                                if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
+                                for (Map<?,?> eflist: (List<Map<?,?>>)(list.get("effect"))) {
+                                    pe = new PotionEffect(PotionEffectType.getByName((String)(eflist.get("type"))),(int)(eflist.get("duration")),(int)((int)(eflist.get("amplifier"))*effectRate));
+                                    if(!pe.apply((LivingEntity) ent)) sender.sendMessage(ChatColor.RED + prefix +ent.getName() + "に" + pe.getType().toString() + "付与失敗しました．");
+                                }
                             }
                         } else{
-                            sender.sendMessage(ChatColor.RED + prefix + name + "は存在しません．");
+                            sender.sendMessage(ChatColor.RED + prefix + (String)(list.get("type")) + "は存在しません．");
                         }
                     }
                 }

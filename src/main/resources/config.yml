@@ -1,162 +1,702 @@
 Default:
   25,1,0:
+    - type: STRAY
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: HUSK
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,40,0:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,1,25:
+    - type: EVOKER
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITCH
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,40,25:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,1,25:
+    - type: STRAY
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: HUSK
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,40,25:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,1,25:
+    - type: EVOKER
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITCH
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,40,25:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,1,0:
+    - type: STRAY
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: HUSK
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,40,0:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,1,-25:
+    - type: EVOKER
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITCH
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,40,-25:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,1,-25:
+    - type: STRAY
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: HUSK
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,40,-25:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,1,-25:
+    - type: EVOKER
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITCH
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,40,-25:
+    - type: BLAZE
+      count: 10
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,40,0:
+    - type: PHANTOM
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+BOSS:
+  25,10,0:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,1,25:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITHER_SKELETON
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,20,25:
+    - type: GHAST
+      count: 5
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,10,25:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,1,25:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITHER_SKELETON
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,20,25:
+    - type: GHAST
+      count: 5
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,10,0:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,1,-25:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITHER_SKELETON
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  -25,20,-25:
+    - type: GHAST
+      count: 5
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  0,10,-25:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,1,-25:
+    - type: WITHER
+      count: 1
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+    - type: WITHER_SKELETON
+      count: 20
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+  25,20,-25:
+    - type: GHAST
+      count: 5
+      effect:
+        - type: HEALTH_BOOST
+          duration: 3600
+          amplifier: 19
+        - type: INCREASE_DAMAGE
+          duration: 3600
+          amplifier: 2
+        - type: DAMAGE_RESISTANCE
+          duration: 3600
+          amplifier: 2
+        - type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+WEAK:
+  25,1,0:
     - type: SKELETON
-      count: 15
+      count: 20
     - type: ZOMBIE
-      count: 15
+      count: 20
   25,1,25:
     - type: SKELETON
-      count: 7
+      count: 10
     - type: ZOMBIE
-      count: 7
+      count: 10
     - type: CREEPER
-      count: 5
+      count: 3
   0,1,25:
     - type: SKELETON
-      count: 15
+      count: 20
     - type: ZOMBIE
-      count: 15
+      count: 20
   -25,1,25:
     - type: SKELETON
-      count: 7
+      count: 10
     - type: ZOMBIE
-      count: 7
+      count: 10
     - type: CREEPER
-      count: 5
+      count: 3
   -25,1,0:
     - type: SKELETON
-      count: 15
+      count: 20
     - type: ZOMBIE
-      count: 15
+      count: 20
   -25,1,-25:
     - type: SKELETON
-      count: 7
+      count: 10
     - type: ZOMBIE
-      count: 7
+      count: 10
     - type: CREEPER
-      count: 5
+      count: 3
   0,1,-25:
     - type: SKELETON
-      count: 15
+      count: 20
     - type: ZOMBIE
-      count: 15
+      count: 20
   25,1,-25:
     - type: SKELETON
-      count: 7
+      count: 10
     - type: ZOMBIE
-      count: 7
+      count: 10
     - type: CREEPER
-      count: 5
+      count: 3
   0,60,0:
     - type: PHANTOM
       count: 20
-#   50,2,0:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   50,2,25:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   50,2,50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   25,2,50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   0,2,50:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   -25,2,50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   -50,2,50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   -50,2,25:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   -50,2,0:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   -50,2,-25:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   -50,2,-50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   -25,2,-50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   0,2,-50:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   25,2,-50:
-#     - type: SKELETON
-#       count: 20
-#     - type: ZOMBIE
-#       count: 20
-#   50,2,-50:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   50,2,-25:
-#     - type: SKELETON
-#       count: 10
-#     - type: ZOMBIE
-#       count: 10
-#     - type: CREEPER
-#       count: 5
-#   0,3,80:
-#     - type: ENDERMAN
-#       count: 30
-#   0,3,-80:
-#     - type: WITCH
-#       count: 30
-#   80,3,0:
-#     - type: EVOKER
-#       count: 15
-#     - type: RAVAGER
-#       count: 5
-#   -80,3,0:
-#     - type: SLIME
-#       count: 30
+Test:
+  25,1,0:
+    - type: ZOMBIE
+      count: 5
